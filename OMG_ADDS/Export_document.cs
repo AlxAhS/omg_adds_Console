@@ -3,6 +3,8 @@ using iText.Kernel.Pdf.Canvas.Draw;
 using iText.Layout;
 using iText.Layout.Element;
 using iText.Layout.Properties;
+using System;
+using System.IO;
 
 namespace OMG_ADDS
 {
@@ -10,8 +12,15 @@ namespace OMG_ADDS
     {
         public void Exportpdf()
         {
+            string desktop_Path = Environment.GetFolderPath(System.Environment.SpecialFolder.DesktopDirectory);
+            string new_Path = desktop_Path + "\\OMG_bills";
+            Directory.CreateDirectory(new_Path);
+
+            string fileName = new_Path + "\\OMG_Cuentadecobro_" + Convert.ToString(Menu.Client_ID)+".pdf";
+
+
             // Must have write permissions to the path folder
-            PdfWriter writer = new PdfWriter("C:\\OMG_Cuentadecobro.pdf");
+            PdfWriter writer = new PdfWriter(fileName);
             PdfDocument pdf = new PdfDocument(writer);
             Document document = new Document(pdf);
 

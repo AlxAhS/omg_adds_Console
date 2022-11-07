@@ -24,10 +24,10 @@ using System.Threading.Tasks;
                 byte select = 0;
 
                 Console.Clear();
-                Console.WriteLine("--------------------------------------------------------------");
+                Console.WriteLine("------------------------------------------------------------");
                 Console.WriteLine("\n\t\t OMG Imports Bill-Generator");
-                Console.WriteLine("\t\t\t\t\t\t   by: Alx.AhS");
-                Console.WriteLine("--------------------------------------------------------------");
+                Console.WriteLine("\t\t\t\t\t\t by: Alx.AhS");
+                Console.WriteLine("------------------------------------------------------------");
                 Console.WriteLine("\n\t\t*** BILL GENERATOR MENU ***");
 
                 form.Generate_values();
@@ -49,12 +49,14 @@ using System.Threading.Tasks;
                 while ((option != "Y") && (option != "y"))
                 {
                     Console.Clear();
-                    Console.WriteLine("\n\t\t--SELECT THE OPTION FOR REPLACE--\n");
+                    Console.WriteLine("------------------------------------------------------------");
+                    Console.WriteLine("\t\t--SELECT THE OPTION FOR REPLACE--\n");
                     Console.WriteLine("\t1. CLIENT NAME: {0}", Client_Name);
                     Console.WriteLine("\t2. CLIENT ID (NIT / CC): {0}", Client_ID);
                     Console.WriteLine("\t3. PRODUCT DESCRIPTION: {0}", Product_Description);
                     Console.WriteLine("\t4. PRODUCT VALUE: $ {0} COP", Product_Value);
                     Console.WriteLine("\t5. CREATE PDF FILE ");
+                    Console.WriteLine("------------------------------------------------------------");
                     Console.Write("\nOPTION: ");
                     select = Convert.ToByte(Console.ReadLine());
 
@@ -63,30 +65,43 @@ using System.Threading.Tasks;
                         case 1:
                             Console.Write("1. CLIENT NAME: ");
                             Client_Name = Console.ReadLine();
-                            break;
+                            Menu_Updated();
+                    break;
                         case 2:
                             Console.Write("2. CLIENT ID: ");
                             Client_ID = Console.ReadLine();
-                            break;
+                            Menu_Updated();
+                    break;
                         case 3:
                             Console.Write("3. PRODUCT DESCRIPTION: ");
                             Product_Description = Console.ReadLine();
-                            break;
+                            Menu_Updated();
+                    break;
                         case 4:
                             Console.Write("4. PRODUCT VALUE: $ ");
                             Product_Value = Console.ReadLine();
+                            Menu_Updated();
                             break;
-                        case 5:
-                            Console.Write("CONTINUE? (Y/N): ");
-                            option = Console.ReadLine();
-                            break ;
                     }
-                    Console.Write("CONTINUE? (Y/N): ");
+                    Console.Write("\nCONTINUE? (Y/N): ");
                     option = Console.ReadLine();
                 }
-                    Console.WriteLine("\n(file created successfully in the directory C:\\) \n");
+                    Console.WriteLine("\n\n************************************************************\nYour bill was generated successfully in the folder OMG_bills \n\t      (folder created in your desktop) \n************************************************************\n\n");
                     Export_document export = new Export_document();
                     export.Exportpdf();
+        }
+
+        public void Menu_Updated() 
+        {
+            Console.Clear();
+            Console.WriteLine("------------------------------------------------------------");
+            Console.WriteLine("\t\t--SELECT THE OPTION FOR REPLACE--\n");
+            Console.WriteLine("\t1. CLIENT NAME: {0}", Client_Name);
+            Console.WriteLine("\t2. CLIENT ID (NIT / CC): {0}", Client_ID);
+            Console.WriteLine("\t3. PRODUCT DESCRIPTION: {0}", Product_Description);
+            Console.WriteLine("\t4. PRODUCT VALUE: $ {0} COP", Product_Value);
+            Console.WriteLine("\t5. CREATE PDF FILE ");
+            Console.WriteLine("------------------------------------------------------------");
         }
     }
 

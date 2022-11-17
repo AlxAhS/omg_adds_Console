@@ -23,7 +23,6 @@ namespace OMG_store
                 Console.WriteLine("------------------------------------------------------------");
                 Console.WriteLine("\n\t\t*** BILL GENERATOR MENU ***");
              
-
                 Console.Write("\n1. CLIENT NAME: ");
                 Client_info.Client_Name = Console.ReadLine();
                 Console.Write("2. CLIENT ID: ");
@@ -93,8 +92,5 @@ namespace OMG_store
             Console.WriteLine("\t5. CREATE PDF FILE ");
             Console.WriteLine("------------------------------------------------------------");
         }
-
-
-
     }
 }
